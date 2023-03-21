@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shopping_app/cubit/hidebottomnav_cubit.dart';
 import 'package:shopping_app/navigation/navigator.dart';
 
 void main() {
@@ -25,7 +27,10 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const ButtomNavigation(),
+      home: BlocProvider<HidebottomnavCubit>(
+        create: (context) => HidebottomnavCubit(),
+        child: const ButtomNavigation(),
+      ),
     );
   }
 }
